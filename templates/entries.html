@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if entries %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Wet Diper</th>
+                    <th scope="col">Dirty Diper</th>
+                    <th scope="col">Left Side</th>
+                    <th scope="col">Rigth Side</th>
+                    <th scope="col">Supp. Amount</th>
+                    <th scope="col">Supp. Formula</th>
+                    <th scope="col">Supp. Breast</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in entries %}
+                    <tr>
+                        <th scope="row">{{ entry.date }}</th>
+                        {% if entry.wet == True %}
+                            <td>&#10004;</td>
+                        {% else %}
+                            <td>&#10063;</td>
+                        {% endif %}
+                        {% if entry.dirty == True %}
+                            <td>&#10004;</td>
+                        {% else %}
+                            <td>&#10063;</td>
+                        {% endif %}
+                        <td>{{ entry.leftside }} Min</td>
+                        <td>{{ entry.rightside }} Min</td>
+                        <td>{{ entry.sup_amount }} Oz</td>
+                        {% if entry.sup_f == True %}
+                            <td>&#10004;</td>
+                        {% else %}
+                            <td>&#10063;</td>
+                        {% endif %}
+                        {% if entry.sup_b == True %}
+                            <td>&#10004;</td>
+                        {% else %}
+                            <td>&#10063;</td>
+                        {% endif %}   
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    {% else %}
+        <div class="col-md-12">
+            <p>No Entries Avaliable</p>
+        </div>
+    {% endif %}
+
+{% endblock %}
