@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if babies %}
+        {% for baby in babies %}
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{ baby.image.url }}" alt="Card image cap">
+                <div class="card-body">
+                <p class="card-text">{{ baby.name }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+    <div class="col-md-12">
+        <p>No Entries Avaliable</p>
+    </div>
+    {% endif %}
+{{% endblock %}}

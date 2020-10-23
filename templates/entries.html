@@ -10,7 +10,6 @@
                     <th scope="col">Dirty Diper</th>
                     <th scope="col">Left Side</th>
                     <th scope="col">Rigth Side</th>
-                    <th scope="col">Supp. Amount</th>
                     <th scope="col">Supp. Formula</th>
                     <th scope="col">Supp. Breast</th>
                 </tr>
@@ -31,17 +30,8 @@
                         {% endif %}
                         <td>{{ entry.leftside }} Min</td>
                         <td>{{ entry.rightside }} Min</td>
-                        <td>{{ entry.sup_amount }} Oz</td>
-                        {% if entry.sup_f == True %}
-                            <td>&#10004;</td>
-                        {% else %}
-                            <td>&#10063;</td>
-                        {% endif %}
-                        {% if entry.sup_b == True %}
-                            <td>&#10004;</td>
-                        {% else %}
-                            <td>&#10063;</td>
-                        {% endif %}   
+                        <td>{{ entry.sup_f_amt }} Oz</td>
+                        <td>{{ entry.sup_b_amt }} Oz</td>
                     </tr>
                 {% endfor %}
             </tbody>

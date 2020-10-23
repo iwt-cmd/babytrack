@@ -1,7 +1,18 @@
 from django import forms
-from .models import BabyTrack
+from .models import BabyTrack, Baby
 
-class PostForm(forms.ModelForm):
+class DateInput(forms.DateInput):
+    input_type = 'datetime-local'
+    def __init__(self, **kwargs):
+        kwargs["format"] = "%Y-%m-%dT%H:%M"
+        super().__init__(**kwargs)
+
+
+class EntryForm(forms.ModelForm):
     class Meta:
         model = BabyTrack
-        fields = ['name', 'date', 'wet', 'dirty', 'leftside', 'rightside', 'sup_amount', 'sup_f', 'sup_b']
+        fields = '__all__'
+        widgets = {
+            'date': DateInput()
+        }
+
