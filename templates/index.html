@@ -1,9 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h2>New Entry</h2>
-    <form method="post" class="post-form">
+    <form action="" method="post" novalidate>
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
+        <button type="submit">Submit</button>
     </form>
+
+    {% if messages %}
+        <ul class="messages">
+            {% for m in messages %}
+                <li class="{{ m.tags }}">{{ m }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 {% endblock %}
