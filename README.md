@@ -24,4 +24,4 @@ The project is setup as a standard Django project so any general Django deployme
 - [ ] Native authentication (*this could currently be done via a reverse proxy/gateway with external auth source*)
 - [ ] Increased tracking fields for age, height, weight
 - [ ] Data graphing to view trends over time and compared to standard growth charts
-- [ ] Cleaner frontend (*React frontend being worked*)
+- [ ] Cleaner frontend (*ES6 or React frontend being worked on*)
