@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.contrib import messages
-from .models import BabyTrack, Baby
+from .models import BabyTrack
 from .forms import EntryForm
 
 def index(request):
@@ -24,10 +24,3 @@ def entries(request):
         'entries':entries
     }
     return render(request, 'entries.html', context)
-
-def babies(request):
-    babies = Baby.objects.all()
-    context = {
-        'babies':babies
-    }
-    return render(request, 'babies.html', context)
