@@ -22,6 +22,6 @@ The project is setup as a standard Django project so any general Django deployme
 ## Roadmap
 - [ ] Import/Export Feature (*currently using Pandas and CSV for mass data changes*)
 - [ ] Native authentication (*this could currently be done via a reverse proxy/gateway with external auth source*)
-- [ ] Increased tracking fields for age, height, weight
+- [ ] Increased tracking fields for age, height, weight, consumed ounces
 - [ ] Data graphing to view trends over time and compared to standard growth charts
 - [ ] Cleaner frontend (*ES6 or React frontend being worked on*)
