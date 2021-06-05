@@ -20,6 +20,7 @@ The project is setup as a standard Django project so any general Django deployme
 `
 
 ## Roadmap
+***Due to "life" development has paused on this project for now.  If there is interest or we add to the family again, will continue work
 - [ ] Import/Export Feature (*currently using Pandas and CSV for mass data changes*)
 - [ ] Native authentication (*this could currently be done via a reverse proxy/gateway with external auth source*)
 - [ ] Increased tracking fields for age, height, weight, consumed ounces
