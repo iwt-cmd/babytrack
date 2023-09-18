@@ -2,7 +2,9 @@ key
 keyenv
 db.sqlite3
 babytrack.sock
-
+aad-info.txt
+aad.config.json
+cert*
 *.log
 *.pot
 *.pyc

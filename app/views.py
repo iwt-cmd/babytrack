@@ -11,8 +11,8 @@ def index(request):
             form.save(commit=True)
             messages.success(request, "Saved!!")
             return redirect('index')
-            
-        
+        else:
+            print(form.errors)
         messages.warning(request, "Not Saved!!")
         
     form = EntryForm()

@@ -9,45 +9,65 @@
     <title>Baby Tracking</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
-        <div class="container">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <ul class="navbar-nav">
-            <li 
-                {% if '/' == request.path %}
-                    class="nav-item active mr-3"
-                {% else %}
-                    class="nav-item mr-3"
-                {% endif %}
-            >
-                <a class="nav-link" href="{% url 'index' %}">Home</a>
-            </li>
-            <li 
-                {% if '/entries' == request.path %}
-                    class="nav-item active mr-3"
-                {% else %}
-                    class="nav-item mr-3"
-                {% endif %}
-            >
-                <a class="nav-link" href="{% url 'entries' %}">Entries</a>
-            </li>
-            <li 
-                {% if '/babies' == request.path %}
-                    class="nav-item active mr-3"
-                {% else %}
-                    class="nav-item mr-3"
-                {% endif %}
-            >
-                <a class="nav-link" href="{% url 'babies' %}">Babies</a>
-            </li>
+    {% if request.identity_context_data.authenticated %}
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+            <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                <li 
+                    {% if '/' == request.path %}
+                        class="nav-item active mr-3"
+                    {% else %}
+                        class="nav-item mr-3"
+                    {% endif %}
+                >
+                    <a class="nav-link" href="{% url 'index' %}">Home</a>
+                </li>
+                <li 
+                    {% if '/entries' == request.path %}
+                        class="nav-item active mr-3"
+                    {% else %}
+                        class="nav-item mr-3"
+                    {% endif %}
+                >
+                    <a class="nav-link" href="{% url 'entries' %}">Entries</a>
+                </li>
+                <li 
+                    {% if '/babies' == request.path %}
+                        class="nav-item active mr-3"
+                    {% else %}
+                        class="nav-item mr-3"
+                    {% endif %}
+                >
+                    <a class="nav-link" href="{% url 'babies' %}">Babies</a>
+                </li>
+                <li>
+                    <p class="nav-link">{{ request.identity_context_data.username }}</p>
+                </li>
+                <li>
+                    <button type="button" class="btn btn-light"><a href="{% url 'sign_out' %}">Logout</a></button>
+                </li>
+            </div>
+            </div>
+        </nav>
+        {% block content %}
+        {% endblock %}
+    {% else %}
+        <div class="d-flex align-items-center" style="height: 350px">
+                <div class="col">
+                    <div class="row justify-content-center" style="padding-bottom: 50px;">
+                        <h1>Babytrack</h1>
+                    </div>
+                    <div class="row justify-content-center">
+                        <a class="btn btn-dark btn-lg" role="button" href="{% url 'sign_in' %}">Login</a>
+                    </div>
+                </div>
+                
         </div>
-        </div>
-    </nav>
-    {% block content %}
-    {% endblock %}
+    {% endif %}
     <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.bundle.min.js' %} "></script>
     <script src="{% static 'js/main.js' %} "></script>

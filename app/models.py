@@ -9,8 +9,8 @@ class BabyTrack(models.Model):
     dirty = models.BooleanField()
     leftside = models.IntegerField(default=0)
     rightside = models.IntegerField(default=0)
-    sup_b_amt = models.DecimalField(max_digits=3, decimal_places=1)
-    sup_f_amt = models.DecimalField(max_digits=3, decimal_places=1)
+    sup_b_amt = models.DecimalField(max_digits=3, decimal_places=1, default=0)
+    sup_f_amt = models.DecimalField(max_digits=3, decimal_places=1, default=0)
     
    
 
