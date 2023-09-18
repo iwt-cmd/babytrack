@@ -5,6 +5,8 @@ babytrack.sock
 aad-info.txt
 aad.config.json
 cert*
+static/
+
 *.log
 *.pot
 *.pyc
